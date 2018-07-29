@@ -2,7 +2,7 @@
 
 Camera::Camera(Window* window)
 {
-	m_projectionMatrix = makeProjectionMatrix(45, window);
+	m_projectionMatrix = makeOrthoMatrix(window);
 	position = { 0, 0, -1.5 };
 }
 
@@ -34,3 +34,4 @@ const glm::mat4 & Camera::getProjectionViewMatrix() const
 {
 	return m_projViewMatrx;
 }
+

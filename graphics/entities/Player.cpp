@@ -58,7 +58,6 @@ void Player::MouseInput()
 	if (rotation.y >  360) rotation.y = 0;
 	else if (rotation.y < 0)    rotation.y = 360;
 
-	m_window->SetMousePos(m_window->getWidth() / 2, m_window->getHeight() / 2);
 	m_xLastPos = m_window->getWidth() / 2;
 	m_yLastPos = m_window->getHeight() / 2;
 }

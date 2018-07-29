@@ -8,13 +8,12 @@ void PlayingState::Init(Window* window)
 	m_player = Player({ { 0, 0, -3 }, { 0, 0, 0 }, m_window });
 	m_camera.hookEntity(m_player);
 
-	m_cubeRenderer = new CubeRenderer("res/shaders/BasicShader.shader", m_textureAtlas);
-	m_window->HideMouse();
+	m_spriteRenderer = new SpriteRenderer("res/shaders/BasicShader.shader", m_textureAtlas);
 }
 
 void PlayingState::Cleanup()
 {
-	delete(m_cubeRenderer);
+	delete(m_spriteRenderer);
 	delete(m_textureAtlas);
 }
 
@@ -28,16 +27,14 @@ void PlayingState::Resume()
 
 void PlayingState::HandleEvents(GameEngine * game)
 {
-	m_player.KeyboardInput();
-	m_player.MouseInput();
+	//m_player.KeyboardInput();
+	//m_player.MouseInput();
 }
 
 void PlayingState::Update(GameEngine * game)
 {
-	for (int i = 0; i < 1000; i++) {
-		Cube* cube = new Cube({ i, 0, 0 }, "stone", m_textureAtlas);
-		m_cubeRenderer->AddCube(cube);
-	}
+	Sprite2D* sprite = new Sprite2D({ 0,0,0 }, m_textureAtlas, { { 0, 0 }, { 16, 16 } });
+	m_spriteRenderer->AddSprite(sprite);
 
 	m_camera.update();
 }
@@ -45,6 +42,6 @@ void PlayingState::Update(GameEngine * game)
 void PlayingState::Draw(GameEngine * game)
 {
 	m_window->Clear();
-	m_cubeRenderer->Render(m_window, m_camera);
+	m_spriteRenderer->Render(m_window, m_camera);
 	m_window->Update();
 }

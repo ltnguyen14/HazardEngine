@@ -1,7 +1,7 @@
 #pragma once
 #include "gameState.h"
 #include "../window.h"
-#include "../graphics/renderers/cubeRenderer.h"
+#include "../graphics/renderers/spriteRenderer.h"
 #include "../graphics/entities/Player.h"
 
 class PlayingState : public GameState {
@@ -28,6 +28,6 @@ private:
 	Window* m_window = nullptr;
 	Camera m_camera;
 	Player m_player;
-	CubeRenderer* m_cubeRenderer;
+	SpriteRenderer* m_spriteRenderer;
 	TextureAtlas* m_textureAtlas;
 };
