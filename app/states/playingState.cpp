@@ -34,9 +34,9 @@ void PlayingState::HandleEvents(GameEngine * game)
 
 void PlayingState::Update(GameEngine * game)
 {
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < 1000; i++) {
 		Cube* cube = new Cube({ i, 0, 0 }, "stone", m_textureAtlas);
-		m_cubeRenderer->addCube(cube);
+		m_cubeRenderer->AddCube(cube);
 	}
 
 	m_camera.update();

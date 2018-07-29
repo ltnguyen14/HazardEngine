@@ -10,7 +10,7 @@ class CubeRenderer {
 public:
 	CubeRenderer(const std::string & shaderPath, TextureAtlas* textureAtlas);
 
-	void addCube(Cube * cube);
+	void AddCube(Cube * cube);
 	void Render(Window* window, const Camera& camera);
 
 private:

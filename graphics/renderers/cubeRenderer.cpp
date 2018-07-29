@@ -8,7 +8,7 @@ CubeRenderer::CubeRenderer(const std::string & shaderPath, TextureAtlas* texture
 {
 }
 
-void CubeRenderer::addCube(Cube * cube)
+void CubeRenderer::AddCube(Cube * cube)
 {
 	m_cubes.push_back(cube);
 }
