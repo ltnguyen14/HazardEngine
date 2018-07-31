@@ -30,8 +30,9 @@ void SpriteRenderer::Render(Window * window, const Camera & camera)
 		m_shader.SetUniformMat4("u_M", modelMatrix);
 
 		GLCALL(glDrawElements(GL_TRIANGLES, m_sprites[i]->getIndiciesCount(), GL_UNSIGNED_INT, nullptr));
-	}
+	} 
 
+	GLCALL(glDisable(GL_BLEND));
 	for (unsigned int i = 0; i < m_sprites.size(); i++) {
 		delete(m_sprites[i]);
 	}

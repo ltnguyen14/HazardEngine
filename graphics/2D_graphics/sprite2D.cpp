@@ -7,9 +7,9 @@ Sprite2D::Sprite2D(glm::vec3 worldPosition, TextureAtlas * textureAtlas, SpriteT
 	std::vector<float> textureCoords = m_textureAtlas->get2DTexture(m_textureData);
 	float positions[] = {
 		0.0f, 0.0f, 0.0f, textureCoords[1], textureCoords[2],
-		1.0f, 0.0f, 0.0f, textureCoords[0], textureCoords[2],
-		1.0f, 1.0f, 0.0f, textureCoords[0], textureCoords[3],
-		0.0f, 1.0f, 0.0f, textureCoords[1], textureCoords[3],
+		0.1f, 0.0f, 0.0f, textureCoords[0], textureCoords[2],
+		0.1f, 0.1f, 0.0f, textureCoords[0], textureCoords[3],
+		0.0f, 0.1f, 0.0f, textureCoords[1], textureCoords[3],
 	};
 
 	unsigned int indicies[] = {

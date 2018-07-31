@@ -3,7 +3,7 @@
 Camera::Camera(Window* window)
 {
 	m_projectionMatrix = makeOrthoMatrix(window);
-	position = { 0, 0, -1.5 };
+	position = { 0, 0, 0 };
 }
 
 void Camera::update()
