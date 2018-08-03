@@ -4,16 +4,16 @@
 TextureAtlas::TextureAtlas(const std::string & filePath)
 	:m_textureAtlas(filePath)
 {
-	m_size = m_textureAtlas.getWidth();
+	m_width = m_textureAtlas.getWidth();
 }
 
 std::vector<float> TextureAtlas::getTexture(const glm::vec2 & coords)
 {
-	static const float TEX_PER_ROW = (float)m_size / (float)BLOCK_SIZE;
+	static const float TEX_PER_ROW = (float)m_width / (float)BLOCK_SIZE;
 	static const float BLOCK_SIZE = 1.0f / TEX_PER_ROW;
 
 	float xMin = (coords.x * BLOCK_SIZE);
-	float yMax = (coords.y * BLOCK_SIZE) / m_size * (-1) + 1;
+	float yMax = (coords.y * BLOCK_SIZE) / m_width * (-1) + 1;
 
 	float xMax = (xMin + BLOCK_SIZE);
 	float yMin = (yMax - BLOCK_SIZE);
@@ -23,16 +23,20 @@ std::vector<float> TextureAtlas::getTexture(const glm::vec2 & coords)
 
 std::vector<float> TextureAtlas::get2DTexture(const SpriteTextureData & textureData)
 {
-	static const float TEX_PER_ROW = (float)m_size / (float)SPRITE_SIZE;
+	static const float TEX_PER_ROW = (float)m_width / (float)SPRITE_SIZE;
 	static const float SPRITE_SIZE = 1.0f / TEX_PER_ROW;
 
+	std::cout << TEX_PER_ROW << std::endl;
+
 	float xMin = (textureData.coordinate.x * SPRITE_SIZE);
-	float yMax = (textureData.coordinate.y * SPRITE_SIZE) / m_size * (-1) + 1;
+	float yMax = (textureData.coordinate.y * SPRITE_SIZE) / m_width * (-1) + 1;
 
-	float xMax = (xMin + textureData.textureSize.x);
-	float yMin = (yMax - textureData.textureSize.y);
+	float xMax = (xMin + 1.0f / textureData.textureSize.x);
+	float yMin = (yMax - 1.0f / textureData.textureSize.y);
 
-	return { xMin, xMax, yMin, yMax };
+	std::cout << xMin << " " << yMax << " " << xMax << " " << yMin << std::endl;
+
+	return { xMin, xMax, yMax, yMin };
 }
 
 void TextureAtlas::Bind() const

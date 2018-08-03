@@ -3,7 +3,7 @@
 void PlayingState::Init(Window* window)
 {
 	m_window = window;
-	m_textureAtlas =  new TextureAtlas("res/textures/TexturePack.png");
+	m_textureAtlas =  new TextureAtlas("res/textures/player.png");
 	m_camera = Camera(window);
 	m_player = Player({ { 0, 0, -2 }, { 0, 0, 0 }, m_window });
 	m_camera.hookEntity(m_player);
@@ -33,9 +33,8 @@ void PlayingState::HandleEvents(GameEngine * game)
 
 void PlayingState::Update(GameEngine * game)
 {
-	Sprite2D* sprite = new Sprite2D({ 0, 0, 0 }, m_textureAtlas, { { 0, 0 }, { 16, 16 } });
+	Sprite2D* sprite = new Sprite2D({ 10, 10, 0 }, m_textureAtlas, { { 0.5f, 0 }, { 32, 32 } }, { 32, 32, 0 });
 	m_spriteRenderer->AddSprite(sprite);
-
 	m_camera.update();
 }
 

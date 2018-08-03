@@ -16,5 +16,5 @@ public:
 	void Bind() const;
 private:
 	Texture m_textureAtlas;
-	int m_size;
+	int m_width;
 };

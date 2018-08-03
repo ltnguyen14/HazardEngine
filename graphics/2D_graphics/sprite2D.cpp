@@ -1,15 +1,15 @@
 #include "sprite2D.h"
 
-Sprite2D::Sprite2D(glm::vec3 worldPosition, TextureAtlas * textureAtlas, SpriteTextureData textureData)
+Sprite2D::Sprite2D(glm::vec3 worldPosition, TextureAtlas * textureAtlas, SpriteTextureData textureData, glm::vec3 size)
 	: m_vao(), m_ibo(), m_vbo(), m_textureAtlas(textureAtlas), m_textureData(textureData)
 {
 	position = worldPosition;
 	std::vector<float> textureCoords = m_textureAtlas->get2DTexture(m_textureData);
 	float positions[] = {
-		0.0f, 0.0f, 0.0f, textureCoords[1], textureCoords[2],
-		0.1f, 0.0f, 0.0f, textureCoords[0], textureCoords[2],
-		0.1f, 0.1f, 0.0f, textureCoords[0], textureCoords[3],
-		0.0f, 0.1f, 0.0f, textureCoords[1], textureCoords[3],
+		0.0f,   0.0f,   0.0f, textureCoords[0], textureCoords[2],
+		size.x, 0.0f,   0.0f, textureCoords[1], textureCoords[2],
+		size.x, size.y, 0.0f, textureCoords[1], textureCoords[3],
+		0.0f,   size.y, 0.0f, textureCoords[0], textureCoords[3],
 	};
 
 	unsigned int indicies[] = {

@@ -10,7 +10,7 @@ struct SpriteTextureData {
 
 class Sprite2D : public Entity{
 public:
-	Sprite2D(glm::vec3 worldPosition, TextureAtlas* textureAtlas, SpriteTextureData textureData);
+	Sprite2D(glm::vec3 worldPosition, TextureAtlas* textureAtlas, SpriteTextureData textureData, glm::vec3 size = { 16, 16, 0 });
 	~Sprite2D();
 
 	void Bind();
