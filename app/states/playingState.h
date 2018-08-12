@@ -3,6 +3,7 @@
 #include "../window.h"
 #include "../graphics/renderers/spriteRenderer.h"
 #include "../graphics/entities/Player.h"
+#include "../graphics/2D_graphics/2D_entities/tennisBall.h"
 
 class PlayingState : public GameState {
 public:
@@ -28,6 +29,7 @@ private:
 	Window* m_window = nullptr;
 	Camera m_camera;
 	Player m_player;
+	TennisBall m_tennisBall;
 	SpriteRenderer* m_spriteRenderer;
-	TextureAtlas* m_textureAtlas;
+	TextureAtlas *m_textureAtlas, *m_utilTextureAtlas;
 };

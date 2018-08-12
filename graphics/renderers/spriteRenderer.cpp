@@ -1,7 +1,7 @@
 #include "spriteRenderer.h"
 
-SpriteRenderer::SpriteRenderer(const std::string & shaderPath, TextureAtlas * textureAtlas)
-	: m_shader(shaderPath), m_textureAtlas(textureAtlas)
+SpriteRenderer::SpriteRenderer(const std::string & shaderPath)
+	: m_shader(shaderPath)
 {
 }
 
@@ -15,7 +15,6 @@ void SpriteRenderer::Render(Window * window, const Camera & camera)
 	m_shader.BindShader();
 
 	m_shader.SetUniformInt1("u_Texture", 0);
-	m_textureAtlas->Bind();
 
 	glm::mat4 projViewMatrix = camera.getProjectionViewMatrix();
 	m_shader.SetUniformMat4("u_VP", projViewMatrix);
@@ -25,6 +24,7 @@ void SpriteRenderer::Render(Window * window, const Camera & camera)
 
 	for (unsigned int i = 0; i < m_sprites.size(); i++) {
 		m_sprites[i]->Bind();
+		m_sprites[i]->getTextureAtlas()->Bind();
 
 		glm::mat4 modelMatrix = makeModelMatrix({ m_sprites[i]->position, { 0, 0, 0 } });
 		m_shader.SetUniformMat4("u_M", modelMatrix);

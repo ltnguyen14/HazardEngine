@@ -1,6 +1,7 @@
 #include "camera.h"
 
 Camera::Camera(Window* window)
+	:m_window(window)
 {
 	m_projectionMatrix = makeOrthoMatrix(window);
 	position = { 0, 0, 0 };
@@ -10,8 +11,9 @@ void Camera::update()
 {
 	position = m_Entity->position;
 	rotation = m_Entity->rotation;
+	size = m_Entity->size;
 
-	m_viewMatrix = makeViewMatrix(*this);
+	m_viewMatrix = makeViewMatrix(*this, m_window);
 	m_projViewMatrx = m_projectionMatrix * m_viewMatrix;
 }
 

@@ -31,8 +31,8 @@ public:
 	bool Closed() const;
 
 	void SetTitle(std::string& title);
-	inline int getWidth() { return m_width; };
-	inline int getHeight() { return m_height; };
+	inline const int getWidth() { return m_width; };
+	inline const int getHeight() { return m_height; };
 
 	void HideMouse();
 	void ShowMouse();

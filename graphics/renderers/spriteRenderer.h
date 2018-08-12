@@ -7,7 +7,7 @@
 
 class SpriteRenderer {
 public:
-	SpriteRenderer(const std::string & shaderPath, TextureAtlas* textureAtlas);
+	SpriteRenderer(const std::string & shaderPath);
 
 	void AddSprite(Sprite2D * sprite);
 	void Render(Window* window, const Camera& camera);
@@ -15,5 +15,4 @@ public:
 private:
 	std::vector<Sprite2D*> m_sprites;
 	Shader m_shader;
-	TextureAtlas* m_textureAtlas;
 };

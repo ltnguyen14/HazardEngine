@@ -3,7 +3,8 @@
 Sprite2D::Sprite2D(glm::vec3 worldPosition, TextureAtlas * textureAtlas, SpriteTextureData textureData, glm::vec3 size)
 	: m_vao(), m_ibo(), m_vbo(), m_textureAtlas(textureAtlas), m_textureData(textureData)
 {
-	position = worldPosition;
+	this->size = size;
+	this->position = worldPosition;
 	std::vector<float> textureCoords = m_textureAtlas->get2DTexture(m_textureData);
 	float positions[] = {
 		0.0f,   0.0f,   0.0f, textureCoords[0], textureCoords[2],

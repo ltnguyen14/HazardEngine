@@ -20,4 +20,5 @@ private:
 	glm::mat4 m_projectionMatrix;
 	glm::mat4 m_viewMatrix;
 	glm::mat4 m_projViewMatrx;
+	Window* m_window;
 };
