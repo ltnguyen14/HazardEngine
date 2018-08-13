@@ -7,8 +7,9 @@ int main(void) {
 	game.ChangeState(PlayingState::Instance());
 
 	while (game.Running()) {
-		game.Update();
+		game.InitEntities();
 		game.HandleEvents();
+		game.Update();
 		game.Draw();
 	}
 

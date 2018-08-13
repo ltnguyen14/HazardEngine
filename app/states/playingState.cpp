@@ -27,6 +27,16 @@ void PlayingState::Resume()
 {
 }
 
+void PlayingState::InitEntities(GameEngine * game)
+{
+	Sprite2D* sprite = new Sprite2D({ 0, 0, 0 }, m_textureAtlas, { { 0, 0 },{ 1, 1 } }, { 64, 64, 0 });
+
+	m_camera.hookEntity(*sprite);
+	m_player.SetSprite(sprite);
+
+	m_spriteRenderer->AddSprite(sprite);
+}
+
 void PlayingState::HandleEvents(GameEngine * game)
 {
 	m_player.KeyboardInput();
@@ -35,13 +45,6 @@ void PlayingState::HandleEvents(GameEngine * game)
 
 void PlayingState::Update(GameEngine * game)
 {
-	Sprite2D* sprite = new Sprite2D({ 0, 0, 0 }, m_textureAtlas, { { 0, 0 }, { 1, 1 } }, { 64, 64, 0 });
-
-	m_camera.hookEntity(*sprite);
-	m_player.SetSprite(sprite);
-	
-	m_spriteRenderer->AddSprite(sprite);
-
 	m_camera.update();
 }
 

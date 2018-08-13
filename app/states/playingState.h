@@ -13,6 +13,7 @@ public:
 	void Pause();
 	void Resume();
 
+	void InitEntities(GameEngine* game);
 	void HandleEvents(GameEngine* game);
 	void Update(GameEngine* game);
 	void Draw(GameEngine* game);

@@ -13,6 +13,7 @@ public:
 	void PushState(GameState* state);
 	void PopState();
 
+	void InitEntities();
 	void HandleEvents();
 	void Update();
 	void Draw();

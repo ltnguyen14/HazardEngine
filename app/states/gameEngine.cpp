@@ -48,6 +48,11 @@ void GameEngine::PopState()
 	}
 }
 
+void GameEngine::InitEntities()
+{
+	states.back()->InitEntities(this);
+}
+
 void GameEngine::HandleEvents()
 {
 	states.back()->HandleEvents(this);
